@@ -1,0 +1,43 @@
+{
+  "name": "passwordless-redisstore",
+  "version": "0.0.1",
+  "description": "Redis TokenStore for Passwordless",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "bcrypt": "^0.7.8",
+    "passwordless-tokenstore": "0.0.10",
+    "redis": "^0.10.3"
+  },
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "chance": "^0.5.6",
+    "grunt": "~0.4.4",
+    "grunt-mocha-test": "~0.10.2",
+    "mocha": "~1.18.2",
+    "node-uuid": "^1.4.1",
+    "passwordless-tokenstore-test": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/florianheinemann/passwordless-redisstore.git"
+  },
+  "keywords": [
+    "redis",
+    "passwordless",
+    "token",
+    "otpw",
+    "one-time-password",
+    "store",
+    "tokenstore"
+  ],
+  "author": "Florian Heinemann <florian.heinemann@gmail.com> (http://twitter.com/florian__h)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/florianheinemann/passwordless-redisstore/issues"
+  },
+  "homepage": "https://github.com/florianheinemann/passwordless-redisstore"
+}
