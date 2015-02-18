@@ -41,6 +41,8 @@ Example:
 passwordless.init(new RedisStore(6379, '127.0.0.1', {
 	// option of the node.js redis client
     auth_pass: 'password',
+    // option of bcrypt, defaults to 12
+    bcryptRounds: 12,
     // options of RedisStore
     redisstore: {
         database: 15,
@@ -54,7 +56,7 @@ passwordless.init(new RedisStore(6379, '127.0.0.1', {
 * **[redisstore.tokenkey]:** *(String)* Optional. Keys to be used. UIDs will be appended. Defaults to: 'pwdless:UID'
 
 ## Hash and salt
-As the tokens are equivalent to passwords (even though only for a limited time) they have to be protected in the same way. passwordless-redisstore uses [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/) with automatically created random salts. To generate the salt 10 rounds are used.
+As the tokens are equivalent to passwords (even though only for a limited time) they have to be protected in the same way. passwordless-redisstore uses [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/) with automatically created random salts. To generate the salt 12 rounds are used. This number can be overridden with a larger integer in the options.
 
 ## Tests
 
