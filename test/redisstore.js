@@ -47,19 +47,19 @@ describe('Specific tests', function() {
 	})
 
 	it('should allow the instantiation with an empty constructor', function () {
-		expect(function() { new RedisStore() }).to.not.throw;
+		expect(function() { new RedisStore() }).to.not.throw();
 	})
 
 	it('should allow the instantiation with host and port but no options', function () {
-		expect(function() { new RedisStore(6379, '127.0.0.1') }).to.not.throw;
+		expect(function() { new RedisStore(6379, '127.0.0.1') }).to.not.throw();
 	})
 
 	it('should allow the instantiation with a number passed as DB selector', function () {
-		expect(function() { new RedisStore(null, null, {redisstore : { database: 0}}) }).to.not.throw;
+		expect(function() { new RedisStore(null, null, {redisstore : { database: 0}}) }).to.not.throw();
 	})
 
 	it('should allow proper instantiation', function () {
-		expect(function() { TokenStoreFactory() }).to.not.throw;
+		expect(function() { TokenStoreFactory() }).to.not.throw();
 	})
 
 	it('should not allow the instantiation with a DB selector that is not a number', function () {

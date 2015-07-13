@@ -1,3 +1,10 @@
-# 0.0.1 (2014-06-28)
+# 1.0.0 (2015-07-13)
+Features:
+- UPDATE of all requires incl. Redis
 
-	Initial release
+Bugfixes:
+- FIX Throws were not detected properly
+- FIX Empty initialization of RedisStore() caused issues
+
+# 0.0.1 (2014-06-28)
+- Initial release
