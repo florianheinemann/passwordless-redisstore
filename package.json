@@ -1,6 +1,6 @@
 {
   "name": "passwordless-redisstore",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Redis TokenStore for Passwordless",
   "main": "index.js",
   "scripts": {
