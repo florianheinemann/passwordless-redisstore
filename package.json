@@ -1,25 +1,25 @@
 {
   "name": "passwordless-redisstore",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Redis TokenStore for Passwordless",
   "main": "index.js",
   "scripts": {
     "test": "grunt test"
   },
   "dependencies": {
-    "async": "^1.3.0",
+    "async": "^2.0.0-rc.2",
     "bcrypt": "^0.8.3",
     "passwordless-tokenstore": "0.0.10",
-    "redis": "^0.12.1"
+    "redis": "^2.5.3"
   },
   "devDependencies": {
-    "chai": "^3.0.0",
-    "chance": "^0.7.6",
-    "grunt": "~0.4.4",
+    "chai": "^3.5.0",
+    "chance": "^1.0.1",
+    "grunt": "^0.4.5",
     "grunt-mocha-test": "^0.12.7",
-    "mocha": "^2.2.5",
-    "node-uuid": "^1.4.1",
-    "passwordless-tokenstore-test": "^0.1.3"
+    "mocha": "^2.4.5",
+    "node-uuid": "^1.4.7",
+    "passwordless-tokenstore-test": "^0.1.4"
   },
   "repository": {
     "type": "git",

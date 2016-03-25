@@ -1,3 +1,8 @@
+# 1.0.2 (2016-03-25)
+Bugfixes:
+- FIX storeOrUpdate to return an empty string as referrer if it was passed as null (in line with spec)
+- UPDATE dependencies
+
 # 1.0.1 (2015-08-22)
 Bugfixes:
 - FIX API documentation which incorrectly referred to MongoDB
