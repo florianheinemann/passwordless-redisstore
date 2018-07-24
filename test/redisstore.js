@@ -54,6 +54,12 @@ describe('Specific tests', function() {
 		expect(function() { new RedisStore(6379, '127.0.0.1') }).to.not.throw();
 	})
 
+	it('should allow the instantiation with an existing client', function () {
+		var rs = null
+		expect(function() { rs = new RedisStore(null, null, { client: 'my-client' }) }).to.not.throw();
+		expect(rs._client).to.equal('my-client');
+	})
+
 	it('should allow the instantiation with a number passed as DB selector', function () {
 		expect(function() { new RedisStore(null, null, {redisstore : { database: 0}}) }).to.not.throw();
 	})
@@ -70,8 +76,8 @@ describe('Specific tests', function() {
 		var store = new RedisStore();
 
 		var user = chance.email();
-		store.storeOrUpdate(uuid.v4(), user, 
-			1000*60, 'http://' + chance.domain() + '/page.html', 
+		store.storeOrUpdate(uuid.v4(), user,
+			1000*60, 'http://' + chance.domain() + '/page.html',
 			function() {
 				client.select(0, function(err, res) {
 					expect(err).to.not.exist;
@@ -92,22 +98,22 @@ describe('Specific tests', function() {
 		var store = new RedisStore(null, null, { redisstore : { tokenkey: 'another_name_', database: db }});
 
 		var user = chance.email();
-		store.storeOrUpdate(uuid.v4(), user, 
-			1000*60, 'http://' + chance.domain() + '/page.html', 
+		store.storeOrUpdate(uuid.v4(), user,
+			1000*60, 'http://' + chance.domain() + '/page.html',
 			function() {
 				client.hgetall('another_name_' + user, function(err, obj) {
 					expect(err).to.not.exist;
 					expect(obj).to.exist;
 					done();
 				})
-			});		
+			});
 	});
 
 	it('should default to "pwdless:" as token key', function(done) {
 		var store = TokenStoreFactory();
 		var user = chance.email();
-		store.storeOrUpdate(uuid.v4(), user, 
-			1000*60, 'http://' + chance.domain() + '/page.html', 
+		store.storeOrUpdate(uuid.v4(), user,
+			1000*60, 'http://' + chance.domain() + '/page.html',
 			function() {
 				client.hgetall('pwdless:' + user, function(err, obj) {
 					expect(err).to.not.exist;
@@ -121,8 +127,8 @@ describe('Specific tests', function() {
 		var store = TokenStoreFactory();
 		var user = chance.email();
 		var token = uuid.v4();
-		store.storeOrUpdate(token, user, 
-			1000*60, 'http://' + chance.domain() + '/page.html', 
+		store.storeOrUpdate(token, user,
+			1000*60, 'http://' + chance.domain() + '/page.html',
 			function() {
 				client.hgetall('pwdless:' + user, function(err, obj) {
 					expect(err).to.not.exist;
@@ -139,16 +145,16 @@ describe('Specific tests', function() {
 		var user = chance.email();
 		var token = uuid.v4();
 		var hashedToken1;
-		store.storeOrUpdate(token, user, 
-			1000*60, 'http://' + chance.domain() + '/page.html', 
+		store.storeOrUpdate(token, user,
+			1000*60, 'http://' + chance.domain() + '/page.html',
 			function() {
 				client.hgetall('pwdless:' + user, function(err, obj) {
 					expect(err).to.not.exist;
 					expect(obj).to.exist;
 					expect(obj.token).to.exist;
 					hashedToken1 = obj.token;
-					store.storeOrUpdate(token, user, 
-						1000*60, 'http://' + chance.domain() + '/page.html', 
+					store.storeOrUpdate(token, user,
+						1000*60, 'http://' + chance.domain() + '/page.html',
 						function() {
 							client.hgetall('pwdless:' + user, function(err, obj) {
 								expect(err).to.not.exist;
@@ -156,9 +162,9 @@ describe('Specific tests', function() {
 								expect(obj.token).to.exist;
 								expect(obj.token).to.not.equal(hashedToken1);
 								done();
-							});						
+							});
 						});
 				})
-			});		
+			});
 	});
 })

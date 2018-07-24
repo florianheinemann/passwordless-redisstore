@@ -22,7 +22,7 @@ passwordless.addDelivery(
     function(tokenToSend, uidToSend, recipient, callback) {
         // Send out a token
     });
-    
+
 app.use(passwordless.sessionSupport());
 app.use(passwordless.acceptToken());
 ```
@@ -34,13 +34,26 @@ new RedisStore([port], [host], [options]);
 ```
 * **[port]:** *(Number)* Optional. Port of your Redis server. Defaults to: 6379
 * **[host]:** *(String)* Optional. Your Redis server. Defaults to: '127.0.0.1'
-* **[options]:** *(Object)* Optional. This can include options of the node.js Redis client as described in the [docs](https://github.com/mranney/node_redis) and the ones described below combined in one object as shown in the example
+* **[options]:** *(Object)* Optional. This can include options of the node.js Redis client as described in the [docs](https://github.com/mranney/node_redis) OR an existing Redis client, and RedisStore options as described below combined in one object as shown in the example
 
 Example:
 ```javascript
 passwordless.init(new RedisStore(6379, '127.0.0.1', {
 	// option of the node.js redis client
     auth_pass: 'password',
+    // options of RedisStore
+    redisstore: {
+        database: 15,
+        tokenkey: 'token:'
+    }
+}));
+```
+
+With existing client:
+```javascript
+passwordless.init(new RedisStore(null, null, {
+	// existing Redis client
+    client: myClient,
     // options of RedisStore
     redisstore: {
         database: 15,

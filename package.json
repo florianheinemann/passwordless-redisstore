@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "async": "^2.0.0-rc.2",
-    "bcrypt": "^0.8.3",
+    "bcrypt": "^3.0.0",
     "passwordless-tokenstore": "0.0.10",
     "redis": "^2.5.3"
   },
